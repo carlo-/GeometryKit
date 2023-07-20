@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "GeometryKit",
+    name: "geometry-kit",
     platforms: [
         .iOS(.v13)
     ],
