@@ -20,12 +20,13 @@ let package = Package(
             name: "GeometryKit",
             dependencies: [
                 "AGGeometryKit"
-            ]
+            ],
+            path: "Sources/Swift/"
         ),
         .target(
             name: "AGGeometryKit",
-            dependencies: [],
-            publicHeadersPath: "Public"
+            path: "Sources/Objective-C/",
+            publicHeadersPath: "Include"
         )
     ]
 )
