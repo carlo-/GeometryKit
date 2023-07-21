@@ -51,6 +51,7 @@ BOOL AGKQuadIsValid(AGKQuad q);
 int AGKQuadCornerIndexForCorner(AGKCorner corner);
 AGKCorner AGKQuadCornerForCornerIndex(int cornerIndex);
 AGKQuad AGKQuadMove(AGKQuad q, CGFloat x, CGFloat y);
+AGKQuad AGKQuadMoveRelativeToSelf(AGKQuad q, CGFloat x, CGFloat y);
 AGKQuad AGKQuadInsetLeft(AGKQuad q, CGFloat inset);
 AGKQuad AGKQuadInsetRight(AGKQuad q, CGFloat inset);
 AGKQuad AGKQuadInsetTop(AGKQuad q, CGFloat inset);

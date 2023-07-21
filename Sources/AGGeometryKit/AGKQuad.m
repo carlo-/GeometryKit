@@ -129,6 +129,36 @@ AGKQuad AGKQuadMove(AGKQuad q, CGFloat x, CGFloat y)
     return q;
 }
 
+AGKQuad AGKQuadMoveRelativeToAxis(AGKQuad q, AGKSide fromSide, AGKSide toSide, CGFloat offset)
+{
+    if (AGKQuadEqual(q, AGKQuadZero) || AGKQuadIsValid(q) == NO) {
+        NSCAssert(NO, @"");
+        return q;
+    }
+    
+    CGPoint fromPt = AGKQuadGetCenterForSide(q, fromSide);
+    CGPoint toPt = AGKQuadGetCenterForSide(q, toSide);
+    CGFloat axisLength = CGPointLengthBetween_AGK(fromPt, toPt);
+    
+    if (axisLength <= 0) {
+        NSCAssert(NO, @"");
+        return q;
+    }
+    
+    CGPoint externalPoint = CGPointInterpolate_AGK(fromPt, toPt, 1 + (offset / axisLength));
+    CGPoint offsetVector = CGPointSubtract_AGK(externalPoint, toPt);
+    
+    AGKQuad result = AGKQuadMove(q, offsetVector.x, offsetVector.y);
+    return result;
+}
+
+AGKQuad AGKQuadMoveRelativeToSelf(AGKQuad q, CGFloat x, CGFloat y) {
+    AGKQuad result = q;
+    result = AGKQuadMoveRelativeToAxis(result, AGKSideTop, AGKSideBottom, y);
+    result = AGKQuadMoveRelativeToAxis(result, AGKSideLeft, AGKSideRight, x);
+    return result;
+}
+
 AGKQuad AGKQuadInsetLeft(AGKQuad q, CGFloat inset)
 {
     q.tl.x += inset;
