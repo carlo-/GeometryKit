@@ -23,7 +23,6 @@
 
 #import "AGKMatrix+AGKVector3D.h"
 #import "AGKMatrix+CATransform3D.h"
-#import "AGKMatrix+GLKit.h"
 #import "CALayer+AGKQuad.h"
 #import "CALayer+AGK+Properties.h"
 #import "CALayer+AGK+Methods.h"

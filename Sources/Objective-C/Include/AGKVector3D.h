@@ -23,9 +23,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import <GLKit/GLKit.h>
-#import "GLKit/GLKVector3.h"
+@import UIKit;
+@import simd;
+
 #import "AGKBaseDefines.h"
 
 AGK_EXTERN_C_BEGIN
@@ -40,7 +40,7 @@ typedef struct AGKVector3D AGKVector3D;
 extern const AGKVector3D AGKVector3DZero;
 
 AGKVector3D AGKVector3DMake(CGFloat x, CGFloat y, CGFloat z);
-AGKVector3D AGKVector3DWithGLKVector3(GLKVector3);
+AGKVector3D AGKVector3DWithGLKVector3(simd_double3);
 CGFloat AGKVector3DGetLength(AGKVector3D v);
 AGKVector3D AGKVector3DAdd(AGKVector3D v1, AGKVector3D v2);
 AGKVector3D AGKVector3DSubtract(AGKVector3D v1, AGKVector3D v2);
