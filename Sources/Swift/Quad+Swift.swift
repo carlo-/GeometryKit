@@ -54,6 +54,10 @@ public extension Quad {
         AGKQuadApplyCGAffineTransform(self, t)
     }
     
+    func modifying(_ corner: AGKCorner, to position: CGPoint) -> Self {
+        AGKQuadModifyCorner(self, corner, position)
+    }
+    
     func moveRelativeToSelf(x: CGFloat = 0, y: CGFloat = 0) -> Self {
         AGKQuadMoveRelativeToSelf(self, x, y)
     }
