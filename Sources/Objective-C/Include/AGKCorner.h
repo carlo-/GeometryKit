@@ -36,12 +36,12 @@ typedef enum AGKSide {
     AGKSideRight = 1 << 3,
 } AGKSide;
 
-typedef enum {
+typedef NS_ENUM(NSInteger, AGKCorner) {
     AGKCornerTopLeft = AGKSideTop | AGKSideLeft,
     AGKCornerTopRight = AGKSideTop | AGKSideRight,
     AGKCornerBottomLeft = AGKSideBottom | AGKSideLeft,
     AGKCornerBottomRight = AGKSideBottom | AGKSideRight,
-} AGKCorner;
+};
 
 BOOL AGKCornerIsOnSide(AGKCorner corner, AGKSide side);
 CGPoint AGKCornerConvertToAnchorPoint(AGKCorner corner);

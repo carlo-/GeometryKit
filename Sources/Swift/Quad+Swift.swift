@@ -22,28 +22,28 @@ public extension Quad {
     var topLeft: CGPoint {
         get { tl }
         mutating set {
-            self = AGKQuadModifyCorner(self, AGKCornerTopLeft, newValue)
+            self = AGKQuadModifyCorner(self, .topLeft, newValue)
         }
     }
     
     var topRight: CGPoint {
         get { tr }
         mutating set {
-            self = AGKQuadModifyCorner(self, AGKCornerTopRight, newValue)
+            self = AGKQuadModifyCorner(self, .topRight, newValue)
         }
     }
     
     var bottomRight: CGPoint {
         get { br }
         mutating set {
-            self = AGKQuadModifyCorner(self, AGKCornerBottomRight, newValue)
+            self = AGKQuadModifyCorner(self, .bottomRight, newValue)
         }
     }
     
     var bottomLeft: CGPoint {
         get { bl }
         mutating set {
-            self = AGKQuadModifyCorner(self, AGKCornerBottomLeft, newValue)
+            self = AGKQuadModifyCorner(self, .bottomLeft, newValue)
         }
     }
 }
