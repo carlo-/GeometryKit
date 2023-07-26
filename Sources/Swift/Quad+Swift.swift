@@ -115,6 +115,19 @@ public extension Quad {
         }
     }
     
+    var center: CGPoint {
+        get {
+            boundingBox.center
+        }
+        mutating set {
+            let oldValue = self.center
+            self = applying(.init(
+                translationX: (newValue.x - oldValue.x),
+                y: (newValue.y - oldValue.y)
+            ))
+        }
+    }
+    
     init(topLeft: CGPoint, topRight: CGPoint, bottomRight: CGPoint, bottomLeft: CGPoint) {
         self.init(
             tl: topLeft,
@@ -186,8 +199,16 @@ public extension Quad {
         )
     }
     
-    var center: CGPoint {
-        AGKQuadGetCenter(self)
+    func withCenter(_ center: CGPoint) -> Quad {
+        var result = self
+        result.center = center
+        return result
+    }
+    
+    func withOrigin(_ origin: CGPoint) -> Quad {
+        var result = self
+        result.origin = origin
+        return result
     }
     
     var rectangularSize: CGSize {
